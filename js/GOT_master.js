@@ -155,8 +155,15 @@
   }
 
   function controlVolume() {
-	console.log(document.getElementsByClassName("volume"));
-	document.getElementsByClassName("volume").volume = 0;
+    var theIcon = this.firstElementChild;
+    if (vidPlayer.muted === false) {
+      vidPlayer.muted = true;
+      theIcon.dataset.icon = "volume-off";
+      //sheet.insertRule(".volume {display: none; }")
+    }else {
+      vidPlayer.muted = false;
+      theIcon.dataset.icon = "volume-up";
+    }
   }
 
   sigils.forEach(sigil => sigil.addEventListener('click', loadMovie));
