@@ -14,6 +14,8 @@
 		    volume = document.querySelector('.volume'),
         imageBanner = document.querySelector('#houseImages'),
         title = document.querySelector('.title'),
+        pre = document.querySelector('.backWa'),
+        next = document.querySelector('.stepFor'),
         houseinfo = document.querySelector('.house-info');
 
       var maintitle = ["STARK", "BARATHEON", "LANNISTER", "GREYJOY", "TULLY", "ARRYN", "FREY", "TARGERYEN"];
@@ -76,7 +78,7 @@
       title.innerHTML = maintitle[6];
       houseinfo.innerHTML = info[6];
       console.log(title.innerHTML);
-    }else if (offser == 7) {
+    }else if (offset == 7) {
       title.innerHTML = maintitle[7];
       houseinfo.innerHTML = info[7];
       console.log(title.innerHTML);
@@ -101,8 +103,10 @@
       theSVG.dataset.icon = "play-circle";
     }
   }
-
   function ffWdVid() {
+    vidPlayer.currentTime += 3;
+  }
+  function nextOne() {
 	if (chooseName == "Stark") {
 		playVideo("Baratheon");
 		chooseName = "Baratheon";
@@ -135,8 +139,10 @@
     vidPlayer.load();
     vidPlayer.play();
   }
-
   function rWindVid() {
+    vidPlayer.currentTime -= 3;
+  }
+  function goBack() {
 	if (chooseName == "Stark") {
 		playVideo("Targaryen");
 		chooseName = "Targaryeny";
@@ -186,4 +192,6 @@
   ffWd.addEventListener('click', ffWdVid);
   rWnd.addEventListener('click', rWindVid);
   volume.addEventListener('click', controlVolume);
+  pre.addEventListener('click', goBack);
+  next.addEventListener('click', nextOne);
 })();
